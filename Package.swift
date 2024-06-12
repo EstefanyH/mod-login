@@ -5,11 +5,17 @@ import PackageDescription
 
 let package = Package(
     name: "Login-Module",
+    platforms: [
+        .iOS(.v15)
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "Login-Module",
             targets: ["Login-Module"]),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/EstefanyH/mod-entity.git", branch: "develop"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
