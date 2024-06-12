@@ -6,18 +6,21 @@
 //
 
 import SwiftUI
+import Entity_Module
 
 public struct ContentView: View {
     @StateObject var authenticationViewModel = AuthenticationViewModel()
     
     @State var email: String = ""
     @State var password: String = ""
-    
+
     public init() {}
     
     public var body: some View {
+        
+       
         VStack {
-            Image("swiftbeta", bundle: .module)
+            Image("swiftbeta" ,bundle: .module)
                 .resizable()
                 .frame(width: 200, height: 200)
             Group {

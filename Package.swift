@@ -15,13 +15,19 @@ let package = Package(
             targets: ["Login-Module"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/EstefanyH/mod-entity.git", branch: "develop"),
+        .package(path: "../mod-entity"),
+        //.package(url: "https://github.com/EstefanyH/mod-entity.git", branch: "develop"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Login-Module"),
+            name: "Login-Module",
+            //dependencies: ["mod-entity"],
+            dependencies: [.product(name: "mod-entity", package: "mod-entity")],
+            resources: [
+                .process("swiftbeta.png")
+            ]),
         .testTarget(
             name: "Login-ModuleTests",
             dependencies: ["Login-Module"]),
