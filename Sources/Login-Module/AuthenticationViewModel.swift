@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Entity_Module
 
 public enum LoginStatus {
     case success
