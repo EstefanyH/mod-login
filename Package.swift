@@ -1,13 +1,12 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 5.10
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "Login-Module",
-    platforms: [
-        .iOS(.v15)
-    ],
+    defaultLocalization: "en", 
+    platforms: [.iOS(.v15)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
@@ -16,7 +15,8 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../mod-entity"),
-        //.package(url: "https://github.com/EstefanyH/mod-entity.git", branch: "develop"),
+        .package(path: "../mod-component"),
+        //.package(url: "https://github.com/EstefanyH/mod-entity.git", from: "RF-1.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -24,7 +24,9 @@ let package = Package(
         .target(
             name: "Login-Module",
             //dependencies: ["mod-entity"],
-            dependencies: [.product(name: "mod-entity", package: "mod-entity")],
+            dependencies: [
+                .product(name: "Entity-Module", package: "mod-entity"),
+                .product(name: "Component-Module", package: "mod-component")],
             resources: [
                 .process("swiftbeta.png")
             ]),
